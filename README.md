@@ -26,6 +26,7 @@
 Esse projeto foi desenvolvido com as seguintes tecnologias:
 
 - [TypeScript](https://www.typescriptlang.org/)
+- [TypeORM](https://typeorm.io/#/)
 - [Websocket](https://www.npmjs.com/package/websocket)
 - [Insomnia](https://insomnia.rest/)
 - [SQL Editor Beekeeper Studio](https://www.beekeeperstudio.io/)
