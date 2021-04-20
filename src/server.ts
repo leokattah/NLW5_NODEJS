@@ -1,29 +1,11 @@
 import express from "express"; //importanto o pacote express
-
+import './database' // Esta linha está importando o arquivo index.ts que está dentro da pasta database. O javascript consegue identificar os arquivos index.js dentro das pastas quando a questão é importação. Isso é o padrão do javascript. Neste caso, na pasta database. 
+import { routes } from "./routes"
 
 const app = express(); //colocando o pacote exress na variável app
 
-
-/*
-GET = Buscar
-POST = Criação
-PUT = Alteração
-DELETE = Deletar
-PATCH = Alterar uma informação específica 
-*/
-
-//criando rotas no servidor
-app.get('/', (request, response) => {
-return response.json({
-  message: 'Olá NLW05'
-})
-})
-
-app.post('/', (request, response) => {
-  return response.json({
-    message: 'Usuário salvo com sucesso'
-  })
-})
+app.use(express.json());
+app.use(routes);
 
 //criando o servidor
 app.listen(3333, () => {
