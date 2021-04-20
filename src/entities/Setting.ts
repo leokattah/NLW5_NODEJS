@@ -28,7 +28,7 @@ class Setting {
 // Este construtor é um método para toda vez que algum "newqualquer coisa" for chamado ele é executado. 
 // Neste caso abaixo, se o ID não vier preenchido, vamos criar uma ID para ele. 
 constructor(){
- if(!this.id) this.id == uuid()
+ if(!this.id) this.id = uuid()
  }
 }
 export {Setting}
