@@ -1,9 +1,5 @@
 import { Router } from "express";
-import { getCustomRepository, getRepository } from "typeorm";
-import { SettingsRepository } from "./repositories/SettingsRepository";
-
-
-
+import { SettingsController } from "./controllers/SettingsController";
 
 /*
 Tipos de rotas
@@ -13,28 +9,16 @@ PUT = Alteração
 DELETE = Deletar
 PATCH = Alterar uma informação específica 
 */
-
 /*
 Tipos de Parâmetros
 Routes Params => Parâmetros de rotas. Exemplo: https://localhost:3333/settings/1
 Query Params => Filtros de buscas. Exemplo: https://localhost:3333/settings/1?search=algumacoisa
 Body Params => São objetos passados dentro das nossas requisições. Exemplo: { name: "Leonardo" }
 */
-
 const routes = Router();
 
-routes.post("/settings", async (request, response) => {
-  const { chat, username } = request.body;
-  const settingsRepository = getCustomRepository(SettingsRepository);
+const settingsController = new SettingsController();
 
-  const settings = settingsRepository.create({
-    chat,
-    username
-  })
-
-await settingsRepository.save(settings)
-
-return response.json(settings)
-})
+routes.post('/settings', settingsController.create);
 
 export { routes }
