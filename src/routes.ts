@@ -1,5 +1,6 @@
 import { Router } from "express";
 import { SettingsController } from "./controllers/SettingsController";
+import { Userscontroller } from "./controllers/UsersController";
 
 /*
 Tipos de rotas
@@ -19,6 +20,10 @@ const routes = Router();
 
 const settingsController = new SettingsController();
 
+const usersController = new Userscontroller();
+
+
 routes.post('/settings', settingsController.create);
+routes.post('/users', usersController.create)
 
 export { routes }
