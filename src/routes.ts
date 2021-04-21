@@ -1,6 +1,7 @@
 import { Router } from "express";
 import { SettingsController } from "./controllers/SettingsController";
-import { Userscontroller } from "./controllers/UsersController";
+import { UsersController } from "./controllers/UsersController";
+import { MessagesController} from "./controllers/MessagesController"
 
 /*
 Tipos de rotas
@@ -19,11 +20,12 @@ Body Params => São objetos passados dentro das nossas requisições. Exemplo: {
 const routes = Router();
 
 const settingsController = new SettingsController();
-
-const usersController = new Userscontroller();
+const usersController = new UsersController();
+const messagesController = new MessagesController();
 
 
 routes.post('/settings', settingsController.create);
 routes.post('/users', usersController.create)
+routes.post('/messages', messagesController.create)
 
 export { routes }
