@@ -38,6 +38,9 @@ O NLW-Chat é uma aplicação que consiste em melhorar a experiência do usuári
 
 Esse projeto foi desenvolvido durante a trilha de NodeJS, na quarta edição da NLW. Aprendemos conceitos sobre o que é um API, como iniciar um projeto utilizando Typescript e Express para gerenciamento das rotas, manipulação dos dados, testes automatizados, entre outros.
 
+## 🔶 Diagrama
+
+<img src="https://github.com/leokattah/NLW5_NODEJS/blob/main/img/diagrama.png" alt="Diagrama da aplicação" />
 
 ## 🚀 Como executar
 
