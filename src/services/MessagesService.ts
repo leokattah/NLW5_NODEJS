@@ -22,6 +22,17 @@ async create({admin_id, text, user_id }: IMessageCreate){
 
   return message
 }
+
+async ListByUser(user_id: string){
+  const messagesRepository = getCustomRepository(MessagesRepository)
+
+  const list = await  messagesRepository.find({
+    where: {user_id},
+    relations: ['user']
+  })
+  return list
+}
+
 }
 
 export { MessagesService }

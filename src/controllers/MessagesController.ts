@@ -13,6 +13,14 @@ async create(req: Request, res: Response){
   })
   return res.json(message)
 }
+
+//localhost:3333/messages/id
+async showByUser(req: Request, res: Response) {
+  const { id } = req.params
+  const messagesService = new MessagesService()
+  const list = await messagesService.ListByUser(id)
+  return res.json(list)
+}
 }
 
 export {MessagesController}
