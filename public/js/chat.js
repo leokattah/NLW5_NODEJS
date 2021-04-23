@@ -88,3 +88,9 @@ document
 
     document.getElementById("messages").innerHTML += rendered;
   });
+
+const chatSupport = document.getElementById("chat_in_support");
+function closeChat() {
+  chat.style.display = "none";
+  chatSupport.style.display = "none"
+}
