@@ -1,5 +1,5 @@
 import { query } from "express";
-import {MigrationInterface, QueryRunner, Table, TableForeignKey, Timestamp} from "typeorm";
+import {MigrationInterface, QueryRunner, Table, TableForeignKey,} from "typeorm";
 
 export class CreateConnections1619101534809 implements MigrationInterface {
 
@@ -28,12 +28,12 @@ export class CreateConnections1619101534809 implements MigrationInterface {
                     },
                     {
                         name: "created_at",
-                        type: "Timestamp",
+                        type: "timestamp",
                         default: "now()"
                     },
                     {
                         name: "updated_at",
-                        type: "Timestamp",
+                        type: "timestamp",
                         default: "now()"
                     }
 
