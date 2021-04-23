@@ -2,25 +2,27 @@ import { Request, response, Response } from "express"
 import { MessagesService } from "../services/MessagesService"
 
 class MessagesController {
-async create(req: Request, res: Response){
-  const { admin_id, text, user_id } = req.body
-  const messagesService = new MessagesService()
+  async create(req: Request, res: Response): Promise<Response> {
+    const { admin_id, user_id, text } = req.body;
 
-  const message = await messagesService.create({
-    admin_id,
-    text,
-    user_id
-  })
-  return res.json(message)
-}
+    const messagesService = new MessagesService();
+
+    const message = await messagesService.create({ admin_id, user_id, text });
+
+    return res.json(message);
+  }
+
 
 //localhost:3333/messages/id
-async showByUser(req: Request, res: Response) {
-  const { id } = req.params
-  const messagesService = new MessagesService()
-  const list = await messagesService.ListByUser(id)
-  return res.json(list)
+async showByUser(req: Request, res: Response): Promise<Response> {
+  const { id } = req.params;
+
+  const messagesService = new MessagesService();
+
+  const messages = await messagesService.listByUser(id);
+
+  return res.json(messages);
 }
 }
 
-export {MessagesController}
+export { MessagesController };

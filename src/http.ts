@@ -11,15 +11,19 @@ const app = express(); //colocando o pacote exress na variável app
 app.use(express.static(path.join(__dirname, ".." , "public"))) // Para usar o HTML dentro das rotas
 app.set("views", path.join(__dirname, ".." , "public")) // Para usar o HTML dentro das rotas
 app.engine("html", require("ejs").renderFile) // Para usar o HTML dentro das rotas
-app.set("view engine", "html") // Para usar o HTML dentro das rotas
+app.set("view engine", "ejs") // Para usar o ejs dentro das rotas
 
-app.get("/pages/client", (req, res) => {
-  return res.render("html/client.html")
-})
+app.get('/pages/client', (req, res) => {
+  return res.render('html/client.html');
+});
 
-const http = createServer(app) // Criando protocolo http
+app.get('/pages/admin', (req, res) => {
+  return res.render('html/admin.html');
+});
 
-const io = new Server(http) //criando protocolo websocket
+const http = createServer(app); // Criando protocolo http
+
+const io = new Server(http); //criando protocolo websocket
 
 io.on("connection", (socket: Socket) => {
   console.log("Conectou", socket.id) //socket.id é default do websocket

@@ -29,9 +29,7 @@ async create({admin_id, text, user_id }: IMessageCreate){
   return message
 }
 
-async ListByUser(user_id: string){
-
-
+async listByUser(user_id: string){
   const list = await  this.messagesRepository.find({
     where: {user_id},
     relations: ['user']
